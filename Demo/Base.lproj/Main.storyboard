@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kfj-mi-P7u">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--ThumbnailView Demo-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ThumbnailViewDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avA-A2-fzz">
+                                <rect key="frame" x="0.0" y="714" width="375" height="98"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sgZ-tm-cEP">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="98"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ly-32-9Ai" customClass="ThumbnailView" customModule="ThumbnailView">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="64" id="yGp-sA-8Uo"/>
+                                            </constraints>
+                                            <connections>
+                                                <action selector="thumbnailViewValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="8kG-V8-Xxy"/>
+                                            </connections>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="6ly-32-9Ai" firstAttribute="top" secondItem="sgZ-tm-cEP" secondAttribute="top" id="hj3-aO-M0h"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="extraLight"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="avA-A2-fzz" secondAttribute="trailing" id="BTe-Ux-EHP"/>
+                            <constraint firstItem="6ly-32-9Ai" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="JAi-7K-liN"/>
+                            <constraint firstItem="avA-A2-fzz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="NVi-XD-0L2"/>
+                            <constraint firstAttribute="bottom" secondItem="avA-A2-fzz" secondAttribute="bottom" id="TiE-mE-2qG"/>
+                            <constraint firstItem="6ly-32-9Ai" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TpU-mE-HTV"/>
+                            <constraint firstItem="6ly-32-9Ai" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rcM-nO-BqT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="ThumbnailView Demo" id="2Yb-Co-E2c"/>
+                    <connections>
+                        <outlet property="thumbnailView" destination="6ly-32-9Ai" id="Cqf-rX-124"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="218" y="117"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JXr-0j-sAu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kfj-mi-P7u" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EEU-WR-uwT">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="YWz-Tx-GDE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XgQ-iw-gSP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-524" y="117"/>
+        </scene>
+    </scenes>
+</document>

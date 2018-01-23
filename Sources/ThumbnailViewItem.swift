@@ -1,5 +1,5 @@
 //
-//  ThumbnailViewTests.swift
+//  ThumbnailViewItem.swift
 //
 //  Copyright (c) 2018 Jaesung Jung.
 //
@@ -21,24 +21,31 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import XCTest
-@testable import ThumbnailView
+import UIKit
 
-class ThumbnailViewTests: XCTestCase {
-    let thumbnailView = ThumbnailView(frame: .zero)
+final class ThumbnailViewItem: UICollectionViewCell {
+    let imageView = UIImageView()
 
-    func testProperties() {
-        let insets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        thumbnailView.insets = insets
-        XCTAssertEqual(thumbnailView.insets, insets)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
 
-        let itemSize = CGSize(width: 50, height: 50)
-        thumbnailView.itemSize = itemSize
-        XCTAssertEqual(thumbnailView.itemSize, itemSize)
-        XCTAssertEqual(thumbnailView.selectionSize, CGSize(width: itemSize.width * 1.2, height: itemSize.height * 1.2))
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+}
 
-        let itemSpacing: CGFloat = 5
-        thumbnailView.itemSpacing = itemSpacing
-        XCTAssertEqual(thumbnailView.itemSpacing, itemSpacing)
+extension ThumbnailViewItem {
+    static let identifier = String(describing: ThumbnailViewItem.self)
+}
+
+extension ThumbnailViewItem {
+    private func setup() {
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        addSubview(imageView)
+        NSLayoutConstraint.activate(NSLayoutConstraint.edges(item: imageView, to: self))
     }
 }
